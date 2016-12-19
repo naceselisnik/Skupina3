@@ -16,9 +16,10 @@
 <h1>{{$video->title}}</h1>
 <h5><b>Upload date:</b></h5>
 <span>{{$video->created_at}}</span><br><br>
+@if(Session::get('user_id') == $video->user_id)
  <a href='/editvideo/{{$video->id}}'>Edit Video</a> <br>
  <a href='/deletevideo/{{$video->id}}'>Delete Video</a> 
-
+@endif
 </center>
 
 
