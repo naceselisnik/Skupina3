@@ -13,11 +13,11 @@ class searchController extends Controller
 		
 		if (Input::has('search')) {
 		    $Search = Input::get('search');
-		    $videos = Video::where('title', 'LIKE', '%'.$Search.'%')->get();
+		    $videos = Video::where('title', 'LIKE', '%'.$Search.'%')->orderBy('created_at','desc')->get();
 		    
 		    return view('index',compact('videos','Search'));
 	    }else{
-		    $videos = Video::all();
+		    $videos = Video::orderBy('created_at','desc')->get();
 		    
 		    return view('index',compact('videos'));
 	    }

@@ -29,12 +29,25 @@ class UploadController extends Controller
    			{
 				$Videotitle = $title.'.mp4';
 				$pot = 'videos/';
-		   		Input::file('video')->move($pot, $Videotitle);
-		   		$url = $pot.$Videotitle;
+				$extension1 = Input::file('video')->getClientOriginalExtension();
+				if($extension1 == 'mp4')
+				{
+					Input::file('video')->move($pot, $Videotitle);
+		   			$url = $pot.$Videotitle;
+				}
+				else
+				{
+					return redirect('/');
+				}
+		   		
 
 		   		$name = $title.'.jpg';
 				$pot = 'image/';
-		   		Input::file('image')->move($pot, $name);
+				$extension = Input::file('image')->getClientOriginalExtension();
+				if(($extension == 'png')||($extension == 'jpg'))
+				{
+					Input::file('image')->move($pot, $name);
+
 		   		$url1 = $pot.$name;
 
 		   		$Video = new Video();
@@ -44,8 +57,11 @@ class UploadController extends Controller
 		   		$Video->thumbnail = $url1;
 		   		$Video->description = $description;
 		   		$Video->save();
-
-		   		return redirect('/');
+		   		
+				}
+				return redirect('/');
+				
+		   		
 	   		}
 
 	}
