@@ -57,7 +57,9 @@
                     @if(Session::get('user_id'))
                         <li><a href="/logout">LOG OUT</a></li>
                         <li><a href="/upload">UPLOAD</a></li>
-                        <li><a href="/delete">DELETE</a></li>
+                        @if(Session::get('admin') == 1)
+                            <li><a href="/admin">ADMIN</a></li>
+                        @endif
                     @else
                         <li><a href="/login">LOG IN</a></li>
                         <li><a href="/registration">REGISTRATION</a></li>

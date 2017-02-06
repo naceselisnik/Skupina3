@@ -9,15 +9,15 @@
                 <label>Title:</label>
                 <br>
                 <input type="text" value="{{$video->title}}" name="newTitle" required="required" 
-                placeholder="New Title">
+                placeholder="New Title" style="width:20%; height:50px; text-align:center;">
                 <br>
                 <br>
                 <label>Description:</label>
                 <br>
-                <input type="text" name="newDescription" value="{{$video->description}}" required="required" placeholder="New Description">
+                <textarea maxlength="1000" name="newDescription" value="{{$video->description}}" required="required"  style="width:20%; height:300px; text-align:center";></textarea>
                 <br>
                 <br>
-                <input type="submit" value="edit">
+                <input type="submit" value="edit" style="width:20%; height:50px; border:1px solid black; text-align:center;">
                 
             </form>
             

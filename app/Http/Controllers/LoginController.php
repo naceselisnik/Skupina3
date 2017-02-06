@@ -22,7 +22,7 @@ class LoginController extends Controller
 			$surname = $User->surname;
 			$user_id = $User->id;
 			$email = $User->email;
-			$admin = $User->admin;
+			$admin = $User->administrator;
 			Session::put('name',$name);
 			Session::put('surname',$surname);
 			Session::put('user_id',$user_id);

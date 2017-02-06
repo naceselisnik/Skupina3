@@ -7,11 +7,9 @@
     <form action="/uploadvideo" method="POST" enctype='multipart/form-data'>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <h1>Upload video:</h1>
-        <label>Title:</label><br>
-        <input type="text" name="title" required="required">
+        <input type="text" name="title" required="required" placeholder="Title" style="width:20%; height:50px; text-align:center;">
         <br><br>
-        <label>Description:</label><br>
-        <textarea rows="4" max cols="30"  name="description" required="required">
+        <textarea maxlength="1000"   name="description" required="required" placeholder="Description" style="width:20%; height:300px; text-align:center;">
         </textarea>
         <br><br>
         <label>Choose image file:</label><br>
@@ -20,7 +18,7 @@
         <label>Choose video file:</label><br>
         <input type="file" name="video" required="required">
         <br><br>
-        <input type="submit" value="Upload video">
+        <input type="submit" value="Upload video" style="width:20%; height:50px; border:1px solid black; text-align:center;">
     </form>
             
             </center>

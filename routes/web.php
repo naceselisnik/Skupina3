@@ -11,6 +11,7 @@
 |
 */
 use App\Video;
+use App\User;
 
 Route::any('/','searchController@getVideo');
 Route::get('/registration', function () {
@@ -25,6 +26,10 @@ Route::get('/creators', function () {
 Route::get('/upload', function () {
     return view('upload');
 });
+Route::get('/admin', function () {
+	$allUsers = User::all();
+    return view('admin',compact('allUsers'));
+});
 Route::post('/registrationForm', 'RegistrationController@registrationForm');
 Route::any('/loggedIn', 'LoginController@loggedIn');
 Route::get('/logout', 'LogoutController@logout');
@@ -33,3 +38,9 @@ Route::get('/video/{video}', 'VideoController@showvideo');
 Route::get('/deletevideo/{video}', 'DeleteController@deletevideo');
 Route::get('/editvideo/{video}', 'EditController@edit');
 Route::post('/updatevideo', 'EditController@update');
+Route::get('/video/{video}/like', 'VideoController@like');
+Route::get('/video/{video}/dislike', 'VideoController@dislike');
+Route::post('/video/{video}/comment/', 'CommentController@comment');
+Route::get('/deletecomment/{coment}', 'CommentController@delete');
+Route::post('/adminDeleteUser', 'DeleteController@AdminDeleteUser');
+
